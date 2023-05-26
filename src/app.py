@@ -2,7 +2,8 @@ import pickle
 
 import dash_bootstrap_components as dbc
 import plotly.graph_objects as go
-from dash import Input, Output, State, callback_context, dash, dcc, exceptions, html
+from dash import Input, Output, State, callback_context, dcc, exceptions, html
+from jupyter_dash import JupyterDash
 from plotly_helpers import (  # noqa: E402
     add_traces_to_figure,
     create_layout,
@@ -12,12 +13,12 @@ from plotly_helpers import (  # noqa: E402
 
 dbc_css = "https://cdn.jsdelivr.net/gh/AnnMarieW/dash-bootstrap-templates@V1.0.2/dbc.min.css"
 external_stylesheets = [dbc.themes.BOOTSTRAP, dbc_css]
-app = dash.Dash(__name__, external_stylesheets=external_stylesheets,
-                prevent_initial_callbacks='initial_duplicate')  # type: ignore
+app = JupyterDash(__name__, external_stylesheets=external_stylesheets,
+                  prevent_initial_callbacks='initial_duplicate')  # type: ignore
 
 server = app.server
 
-with open('E:/projects/surface-plots/data/bin/data_v4.pickle', 'rb') as file:
+with open('data/bin/data_v4.pickle', 'rb') as file:
     surface_data = pickle.load(file)
 
 
@@ -361,4 +362,4 @@ def update_graph(figures_dict, selected_graph):
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run_server(mode='jupyterlab')
