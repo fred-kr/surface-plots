@@ -163,5 +163,4 @@ plot_data/
 deprecated/
 data/
 experimenting/
-out/png/
-out/html/
+out/
