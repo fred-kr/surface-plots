@@ -4,9 +4,9 @@ import numpy as np
 import plotly.graph_objects as go
 from dash import dash_table, html
 
-BACKGROUND_COLOR = "#999"
+BACKGROUND_COLOR = "#EEE"
 LINE_COLOR = "black"
-LINE_WIDTH = 5
+LINE_WIDTH = 7
 TICK_COLOR = "white"
 TICK_FONT = dict(size=21, color="black", family="Arial")
 TICK_LEN = 20

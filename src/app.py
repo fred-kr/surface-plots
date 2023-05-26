@@ -1,5 +1,4 @@
 import pickle
-import urllib.request
 
 import dash_bootstrap_components as dbc
 import plotly.graph_objects as go
@@ -18,16 +17,16 @@ app = dash.Dash(__name__, external_stylesheets=external_stylesheets,
 
 server = app.server
 
-# with open('..\\out\\data_v4.pickle', 'rb') as file:
-#     surface_data = pickle.load(file)
-
-url = "https://github.com/fred-kr/surface-plots/blob/beb45047e817f3c3bc2bfab19fd1c628e6b3f58a/out/data_v4.pickle?raw=true"
-filename = "data_v4.pickle"
-
-urllib.request.urlretrieve(url, filename)
-
-with open(filename, 'rb') as file:
+with open('..\\out\\data_v4.pickle', 'rb') as file:
     surface_data = pickle.load(file)
+
+# url = "https://github.com/fred-kr/surface-plots/blob/beb45047e817f3c3bc2bfab19fd1c628e6b3f58a/out/data_v4.pickle?raw=true"
+# filename = "data_v4.pickle"
+
+# urllib.request.urlretrieve(url, filename)
+
+# with open(filename, 'rb') as file:
+#     surface_data = pickle.load(file)
 
 traces = []
 
@@ -369,4 +368,4 @@ def update_graph(figures_dict, selected_graph):
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
