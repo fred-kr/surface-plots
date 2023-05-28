@@ -13,7 +13,7 @@ TICK_LEN = 20
 TICK_WIDTH = 5
 ANNOTATION_FONT = dict(size=35, color="black", family="Arial")
 
-COLOR_SCALES: dict[str, List[str]] = {
+COLOR_SCALES = {
     'Set3': [
         "#8DD3C7",
         "#FFFFB3",
